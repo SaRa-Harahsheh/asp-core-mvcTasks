@@ -1,0 +1,14 @@
+﻿body {
+
+}
+
+
+h1{
+    text-align:center;
+}
+
+.cards {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}

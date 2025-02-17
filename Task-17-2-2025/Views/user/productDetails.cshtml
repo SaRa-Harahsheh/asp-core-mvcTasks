@@ -1,0 +1,38 @@
+﻿
+@{
+    ViewData["Title"] = "productDetails";
+}
+
+@{
+    Layout = "~/Views/Shared/_userLayout.cshtml";
+}
+@{
+    string[] names = { "Apartment with Amazing Park View","Double Delux Room","luxury Abartment" };
+    string[] images = { "https://media.bhsusa.com/blog/22963872-1_l.jpg", "https://www.theexcelsiorhotel.com.ph/wp-content/uploads/2023/11/Deluxe-Room-Twin_11zon-scaled.webp", "https://media.inmobalia.com/imgV1/B95mbh8olwFQm~uCUaVOI2kQT0hb0a8sZ9turUNfnwtvuccYCzs0YVPfPbfkc2VnnN1JFDpiVdhTScitlO2GLYASDqop3cfWu9Gkfsn8mE4O0rBBP20KWacEo60j3~yKl9BxLFDAUG5P_~0h5DLnnClwWCdoRIjNox3NuCJ_5Y4KPZwv1j0hk0TpvJ4eyNFjVLKv0ac9R61rX0r41l_FFdvv96ASRkdSSnzL71wwHvDZqR2k9N6g8sXDJLPerqTXojzkIIAAFDpakM896CzJnu2UdoNK5AVmlsCAhAjNTm4VmFou9Qh521qNPsYkK3c~uQ9DErj2~q3tP54aUhs9mlPldH8uw~k_CXE_BG5XuIDVmOPTtRZyLkGUdwe1UnNnKO_vHua01bqhWnNJdS8-.jpg" };
+    string[] discribition = { "$45.00","$35.00","$40.00"};
+}
+
+@section styles{
+
+    <link rel="stylesheet" href="~/css/product.css" />
+}
+<h1>productDetails</h1>
+
+
+
+@for (int i = 0; i < names.Length; i++)
+{
+   <div class="cards">
+<div class="card" style="width: 18rem;">
+    <img src="@images[i]" class="card-img-top" alt="...">
+    <div class="card-body">
+        <h5 class="card-title">@names[i]</h5>
+        <p class="card-text">@discribition[i]</p>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
+    </div>
+</div>
+    </div>
+}
+
+
+
