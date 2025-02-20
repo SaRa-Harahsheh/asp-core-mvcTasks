@@ -1,7 +1,116 @@
 ﻿
 @{
     ViewData["Title"] = "AdminDashboard";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+
 }
 
-<h1>AdminDashboard</h1>
+@section styles {
+
+    <link rel="stylesheet" href="~/css/site.css" />
+}
+
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">Admin Panel</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link" href="~/user/productDetails.cshtml">product Details</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Users</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Settings</a></li>
+                <li class="nav-item"><a class="nav-link btn btn-danger text-white" href="#">Logout</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container-fluid mt-4">
+    <div class="row">
+        <div class="col-md-3 bg-light p-3">
+            <h5>Sidebar</h5>
+            <ul class="nav flex-column">
+                <li class="nav-item"><a class="nav-link" href="Views\user\productDetails.cshtml">product Details</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Users</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Reports</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Settings</a></li>
+            </ul>
+        </div>
+        <div class="col-md-9">
+            <h3>Dashboard Overview</h3>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card text-white bg-primary mb-3">
+                        <div class="card-body">
+                            <h5 class="card-title">Total Users</h5>
+                            <p class="card-text">120</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card text-white bg-success mb-3">
+                        <div class="card-body">
+                            <h5 class="card-title">Active Sessions</h5>
+                            <p class="card-text">45</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card text-white bg-warning mb-3">
+                        <div class="card-body">
+                            <h5 class="card-title">Pending Requests</h5>
+                            <p class="card-text">10</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <h4>Recent Users</h4>
+
+
+
+            @{
+                string[] ID = { "1", "2", "3" };
+                string[] UserNames = { "SaRa", "Rahaf", "Me3ad" };
+                string[] Age = { "25", "26", "28" };
+                string[] Email = { "sara.harahsheh0@gmail.com", "rahaf@gmail.com", "mead95@gmail.com" };
+            }
+
+
+
+           
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>UserNames</th>
+                            <th>Age</th>
+                            <th>Email</th>
+                        </tr>
+                    </thead>
+
+                     @for (int i = 0; i < UserNames.Length; i++)
+
+                    {
+                    <tbody>
+                   
+                        <tr>
+                            <td>@ID[i]</td>
+                            <td> @UserNames[i]</td>
+                            <td>@Age[i]</td>
+                            <td>@Email[i]</td>
+                        </tr>
+                    
+
+                    </tbody>
+                    }
+                </table>
+            
+        </div>
+        </div>
+    </div>
+    </div>
+
 
