@@ -19,24 +19,24 @@ namespace Task_Four.Controllers
         public IActionResult HandelRegister(string name, string email, string password, string RepeatPassword)
 
         {
-                if (RepeatPassword == password)
-                {
-                    HttpContext.Session.SetString("Name", name);
-                    HttpContext.Session.SetString("Email", email);
-                    HttpContext.Session.SetString("Password", password);
-                    return RedirectToAction("Login");
-                }
-                else
-                {
-                    TempData["Message"] = "Password Does Not Match";
-                    return RedirectToAction("Register");
-                }
-            
+            if (RepeatPassword == password)
+            {
+                HttpContext.Session.SetString("Name", name);
+                HttpContext.Session.SetString("Email", email);
+                HttpContext.Session.SetString("Password", password);
+                return RedirectToAction("Login");
+            }
+            else
+            {
+                TempData["Message"] = "Password Does Not Match";
+                return RedirectToAction("Register");
+            }
+
 
         }
 
 
-        
+
 
 
 
@@ -50,26 +50,29 @@ namespace Task_Four.Controllers
 
 
         [HttpPost]
-      public IActionResult HandelLogin( string email , string password)
+        public IActionResult HandelLogin(string email, string password)
         {
+
+
             string email1 = HttpContext.Session.GetString("email");
             string password1 = HttpContext.Session.GetString("password");
 
 
-            //if (email1 == "sara@gmail.com" && password1 == "123")
+            if (string.IsNullOrEmpty(email1) || string.IsNullOrEmpty(password1))
+            { 
 
-            //{
-            //    return RedirectToAction("Index", "Home");
-            //}
-            //else
-            //{
+                return RedirectToAction("Login");
+    
+            }
+            else
+            {
 
-            //    return RedirectToAction("Login");
-            //}
+                if (email1 == "sara@gmail.com" && password1 == "123")
 
-            
+                {
+                    return RedirectToAction("Index", "Home");             // admin
+                }
 
-           
                 if (email1 == email && password1 == password)
                 {
                     //TempData["User"] = new string[] { email, password };
@@ -80,14 +83,31 @@ namespace Task_Four.Controllers
                     TempData["Message"] = "Wrong email or password!";
                     return RedirectToAction("Login");
                 }
-            
-      }
+              
+
+
+            }
+
+
+
+
+
+
+           
+        }
+    
+      
 
 
 
 
         public IActionResult Profile()
         {
+
+            ViewData["name"] = HttpContext.Session.GetString("name");
+
+            ViewData["email"] = HttpContext.Session.GetString("email");
+
             return View();
         }
     }

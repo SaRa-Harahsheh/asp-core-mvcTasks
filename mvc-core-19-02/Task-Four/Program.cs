@@ -1,13 +1,12 @@
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+
 builder.Services.AddControllersWithViews();  // //it found mean your project run in mvc system
-//builder.Services.AddSession();                   //*** register session
-//builder.Services.AddDistributedMemoryCache();         //*** to make space to store session 
+     
 
 
-builder.Services.AddDistributedMemoryCache();
-builder.Services.AddSession(options =>
+builder.Services.AddDistributedMemoryCache();      //*** to make space to store session 
+builder.Services.AddSession(options =>             //*** register session
 {
     options.IdleTimeout = TimeSpan.FromMinutes(30);
     options.Cookie.HttpOnly = true;
@@ -16,13 +15,7 @@ builder.Services.AddSession(options =>
 builder.Services.AddHttpContextAccessor();
 
 
-// Configure the HTTP request pipeline.
-//if (!app.Environment.IsDevelopment())
-//{
-//    app.UseExceptionHandler("/Home/Error");
-//    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
-//    app.UseHsts();
-//}
+
 
 var app = builder.Build();
 
@@ -31,10 +24,10 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
-app.UseSession();
+app.UseSession();             //***Let me use session in the project
 
 app.UseAuthorization();
-/*app.UseSession(); */         //***Let me use session in the project
+     
 
 app.MapControllerRoute(
     name: "default",
