@@ -8,7 +8,7 @@ builder.Services.AddControllersWithViews();  // //it found mean your project run
 builder.Services.AddDistributedMemoryCache();      //*** to make space to store session 
 builder.Services.AddSession(options =>             //*** register session
 {
-    options.IdleTimeout = TimeSpan.FromMinutes(30);
+    
     options.Cookie.HttpOnly = true;
     options.Cookie.IsEssential = true;
 });

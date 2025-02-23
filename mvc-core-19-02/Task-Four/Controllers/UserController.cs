@@ -54,8 +54,8 @@ namespace Task_Four.Controllers
         {
 
 
-            string email1 = HttpContext.Session.GetString("email");
-            string password1 = HttpContext.Session.GetString("password");
+            string email1 = HttpContext.Session.GetString("Email");
+            string password1 = HttpContext.Session.GetString("Password");
 
 
             if (string.IsNullOrEmpty(email1) || string.IsNullOrEmpty(password1))
