@@ -1,0 +1,35 @@
+﻿
+@model List<User>
+<form method="post" asp-action="HandelLogin">
+
+
+
+    <div class="mb-3">
+        <label for="name" class="form-label">Name</label>
+        <input type="text" class="form-control" name="name" placeholder="Your Name">
+    </div>
+    <div class="mb-3">
+        <label for="email" class="form-label"> Email</label>
+        <input type="email" class="form-control" name="email" placeholder="example@email.com">
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Location </label>
+        <input type="text" class="form-control" name="location" placeholder="Irbid">
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Head Of Department </label>
+        <input type="text" class="form-control" name="HOD">
+    </div>
+
+
+
+
+
+    @*   <div class="mb-3 form-check">
+        <input type="checkbox" class="form-check-input" id="terms">
+        <label class="form-check-label" for="terms">أوافق على الشروط والأحكام</label>
+    </div> *@
+    <button type="submit" class="btn btn-custom w-100">create</button>
+</form>
+
