@@ -1,0 +1,36 @@
+﻿@model IEnumerable< Department >
+@{
+    ViewData["Title"] = "DepartmentSection";
+}
+
+<h1>Department Section </h1>
+
+<table class="table table-bordered table-striped" style="width:100%">
+
+    <thead>
+
+        <tr>
+            <th> Name </th>
+            <th> Email </th>
+            <th> Location </th>
+            <th> Head Of Department </th>
+ 
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var item in Model)
+        {
+            <tr>
+                <td>@item.Name</td>
+                <td>@item.Email</td>
+                <td>@item.Location</td>
+                <td>@item.HeadOfDepartment</td>
+            </tr>
+        }
+
+    </tbody>
+
+</table>
+
+
+<a asp-controller="" asp-action=""><button type="button" class="btn btn-secondary">Add item</button></a>
